@@ -1,0 +1,55 @@
+@font-face {
+  font-family: 'Roboto';
+  src: url("../assets/fonts/Roboto/Roboto-Medium.ttf");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url("../assets/fonts/Roboto/Roboto-Regular.ttf");
+  font-weight: 400;
+}
+
+$font-family: 'Roboto';
+
+@mixin plex-medium {
+  font-family: $font-family;
+  font-weight: 500;
+}
+
+@mixin plex-regular {
+  font-family: $font-family;
+  font-weight: 400;
+}
+
+@mixin heading-1 {
+  @include plex-regular;
+  font-size: 24px;
+  line-height: 30px;
+}
+
+@mixin heading-2 {
+  @include plex-regular;
+  font-size: 18px;
+  line-height: 22px;
+}
+
+@mixin heading-3 {
+  @include plex-medium;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+@mixin body-1 {
+  @include plex-regular;
+  font-size: 14px;
+  line-height: 15px;
+}
+
+.heading-1 {
+  @include heading-1;
+}
+
+.heading-2 {
+  @include heading-2;
+}

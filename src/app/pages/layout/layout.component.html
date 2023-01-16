@@ -1,0 +1,21 @@
+<nav mat-tab-nav-bar [tabPanel]="tabPanel">
+  <h1 class="logo heading-1">CurrencyS</h1>
+
+  <div class="link-wrapper">
+    <a mat-tab-link *ngFor="let option of optionsLinks"
+       (click)="activeLink = option.link"
+       [active]="activeLink == option.link"
+       [routerLink]="option.link"
+        class="heading-2">
+      <span [style.background-image]="'url(' + option.imageUrl + ')'" class="link-icon"></span>
+      {{option.name}}
+    </a>
+  </div>
+
+  <div class="user-menu"></div>
+</nav>
+<mat-tab-nav-panel #tabPanel>
+  <router-outlet></router-outlet>
+</mat-tab-nav-panel>
+
+

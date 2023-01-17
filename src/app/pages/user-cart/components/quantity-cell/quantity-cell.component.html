@@ -1,0 +1,9 @@
+<div class="quantity-container">
+  <div class="button" (click)="onRemove($event)" >
+    <mat-icon fontIcon="remove"></mat-icon>
+  </div>
+  <div> {{ data.quantity }} </div>
+  <div class="button">
+    <mat-icon (click)="onAdd($event)" fontIcon="add"></mat-icon>
+  </div>
+</div>

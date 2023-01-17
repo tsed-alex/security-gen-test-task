@@ -1,0 +1,16 @@
+:host {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.icon {
+  width: 17px;
+  height: 17px;
+  background-image: url("~src/assets/images/table/not-available.svg");
+  background-size: cover;
+}
+
+.available {
+  background-image: url("~src/assets/images/table/available.svg");
+}

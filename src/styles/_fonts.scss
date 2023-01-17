@@ -53,3 +53,7 @@ $font-family: 'Roboto';
 .heading-2 {
   @include heading-2;
 }
+
+.heading-3 {
+  @include heading-3;
+}

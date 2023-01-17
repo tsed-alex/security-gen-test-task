@@ -4,7 +4,9 @@
   <div class="link-wrapper">
     <a mat-tab-link *ngFor="let option of optionsLinks"
        (click)="activeLink = option.link"
-       [active]="activeLink == option.link"
+       routerLinkActive=""
+       #rla="routerLinkActive"
+       [active]="rla.isActive"
        [routerLink]="option.link"
         class="heading-2">
       <span [style.background-image]="'url(' + option.imageUrl + ')'" class="link-icon"></span>

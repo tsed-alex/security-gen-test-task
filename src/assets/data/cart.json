@@ -1,0 +1,42 @@
+[
+  {
+    "id": 0,
+    "name": "Product_name1",
+    "status": 1,
+    "delivery": "2023-06-01",
+    "category": 4,
+    "price": 50
+  },
+  {
+    "id": 1,
+    "name": "Product_name2",
+    "status": 1,
+    "delivery": "2023-06-02",
+    "category": 4,
+    "price": 40
+  },
+  {
+    "id": 2,
+    "name": "Product_name3",
+    "status": 1,
+    "delivery": "2023-06-03",
+    "category": 4,
+    "price": 500
+  },
+  {
+    "id": 3,
+    "name": "Product_name4",
+    "status": 1,
+    "delivery": "2023-06-04",
+    "category": 4,
+    "price": 39
+  },
+  {
+    "id": 4,
+    "name": "Product_name5",
+    "status": 0,
+    "delivery": null,
+    "category": 4,
+    "price": 10
+  }
+]

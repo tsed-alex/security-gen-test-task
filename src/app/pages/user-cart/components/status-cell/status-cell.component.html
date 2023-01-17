@@ -1,0 +1,9 @@
+<ng-container *ngIf="status == CartItemStatus.Available else notAvailable">
+  <div class="icon available"></div>
+  <div>Available</div>
+</ng-container>
+
+<ng-template #notAvailable>
+  <div class="icon"></div>
+  <div>Not available</div>
+</ng-template>

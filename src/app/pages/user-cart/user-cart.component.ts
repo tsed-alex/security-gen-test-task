@@ -2,7 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {SelectionModel} from "@angular/cdk/collections";
 import {CartDataSourceService} from "./services/cart-data-source.service";
 import {UserCartItemModelView} from "../../@domain/user-cart/user-cart-item.model-view";
-import {concat, merge, Observable, of, startWith, Subject} from "rxjs";
+import {merge, Observable, of, Subject} from "rxjs";
 import {map} from "rxjs/operators";
 import {CartItemStatus} from 'src/app/@domain/user-cart/types';
 
@@ -54,7 +54,6 @@ export class UserCartComponent implements OnInit, OnDestroy {
     this.dataSource.disconnect();
   }
 
-  /** Whether the number of selected elements matches the total number of rows. */
   public isAllSelected(): Observable<boolean> {
     return this.rows$.pipe(map(rows => {
       const numSelected = this.selection.selected.length;
@@ -63,7 +62,6 @@ export class UserCartComponent implements OnInit, OnDestroy {
     }));
   }
 
-  /** Selects all rows if they are not all selected; otherwise clear selection. */
   public toggleAllRows(): void {
     this.isAllSelected().subscribe(isAllSelected => {
       if (isAllSelected) {

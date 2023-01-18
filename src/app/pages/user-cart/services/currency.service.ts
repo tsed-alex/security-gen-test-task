@@ -32,7 +32,7 @@ export class CurrencyService {
   private loadCurrencies(): void {
     const params = new HttpParams({ fromObject: {
         base: 'USD',
-        symbols: 'USD,EUR'
+        symbols: 'USD,RUB,GBP,EUR,CNY'
     } });
 
     this.http.request("GET",'https://api.exchangerate.host/latest', { params })

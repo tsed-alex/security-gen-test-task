@@ -5,10 +5,16 @@ export enum CartItemStatus {
 
 export enum CurrencyValueTypes {
   USD = "USD",
-  EUR = "EUR"
+  RUB = "RUB",
+  GBP = "GBP",
+  EUR = "EUR",
+  CNY = "CNY"
 }
 
 export enum CurrencySymbols {
   USD = "$",
-  EUR = "€"
+  RUB = "₽",
+  GBP = "£",
+  EUR = "€",
+  CNY = "¥"
 }

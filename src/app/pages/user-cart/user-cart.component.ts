@@ -4,13 +4,16 @@ import {CartDataSourceService} from "./services/cart-data-source.service";
 import {UserCartItemModelView} from "../../@domain/user-cart/user-cart-item.model-view";
 import {merge, Observable, of, Subject} from "rxjs";
 import {map} from "rxjs/operators";
-import {CartItemStatus} from 'src/app/@domain/user-cart/types';
+import {CartItemStatus, CurrencyValueTypes} from 'src/app/@domain/user-cart/types';
+import {CurrencyService} from "./services/currency.service";
+import {FormControl} from "@angular/forms";
 
 
 @Component({
   selector: 'app-user-cart',
   templateUrl: './user-cart.component.html',
   styleUrls: ['./user-cart.component.scss'],
+  providers: [CurrencyService]
 })
 export class UserCartComponent implements OnInit, OnDestroy {
   public displayedColumns: string[] = ['select', 'name', 'status', 'date', 'price', 'quantity', 'subtotal_price'];
@@ -21,8 +24,10 @@ export class UserCartComponent implements OnInit, OnDestroy {
   public totalPrice$: Observable<number> = of(0);
   CartItemStatus = CartItemStatus
   public quantityChanged$ = new Subject<null>();
+  public currencyControl = new FormControl<CurrencyValueTypes>(CurrencyValueTypes.USD);
+  public currencyOptions = Object.keys(CurrencyValueTypes);
 
-  constructor(private cartDataSource: CartDataSourceService) {
+  constructor(private cartDataSource: CartDataSourceService, private currencyService: CurrencyService) {
   }
 
   public ngOnInit(): void {
@@ -46,10 +51,10 @@ export class UserCartComponent implements OnInit, OnDestroy {
       }
     });
 
-
-    this.rows$.subscribe(value=>console.log('value1', value));
+    this.currencyControl.valueChanges.subscribe(value => this.currencyService.currencyValue = value as CurrencyValueTypes);
   }
 
+  // TO-DO unsubscribe from all streams
   public ngOnDestroy(): void {
     this.dataSource.disconnect();
   }
@@ -71,7 +76,6 @@ export class UserCartComponent implements OnInit, OnDestroy {
 
       this.selectAll();
     });
-
   }
 
   private selectAll(): void {

@@ -10,16 +10,24 @@ import { StatusCellComponent } from './components/status-cell/status-cell.compon
 import { QuantityCellComponent } from './components/quantity-cell/quantity-cell.component';
 import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
+import { UserCurrencyPipe } from './pipes/user-currency.pipe';
+import {CurrencyService} from "./services/currency.service";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatSelectModule} from "@angular/material/select";
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
-  declarations: [UserCartComponent, StatusCellComponent, QuantityCellComponent],
+  declarations: [UserCartComponent, StatusCellComponent, QuantityCellComponent, UserCurrencyPipe],
   imports: [
     CommonModule,
     UserCartRoutingModule,
     MatCheckboxModule,
     MatTableModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    ReactiveFormsModule
   ],
   providers: [
     UserCartService,

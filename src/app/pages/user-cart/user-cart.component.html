@@ -1,8 +1,18 @@
 <div class="cart-container">
   <main>
-    <table #table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <div class="control-cart-panel">
+      <mat-form-field appearance="fill">
+        <mat-label>Your currency:</mat-label>
+        <mat-select [formControl]="currencyControl">
+          <mat-option *ngFor="let currency of currencyOptions" [value]="currency">
+            {{ currency }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
 
-      <!-- Checkbox Column -->
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
       <ng-container matColumnDef="select">
         <th mat-header-cell *matHeaderCellDef>
           <mat-checkbox (change)="$event ? toggleAllRows() : null"
@@ -39,7 +49,7 @@
 
       <ng-container matColumnDef="price">
         <th mat-header-cell *matHeaderCellDef> Price </th>
-        <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+        <td mat-cell *matCellDef="let element"> {{element.price | userCurrency | async}} </td>
       </ng-container>
 
       <ng-container matColumnDef="quantity">
@@ -51,7 +61,7 @@
 
       <ng-container matColumnDef="subtotal_price">
         <th mat-header-cell *matHeaderCellDef> Subtotal price </th>
-        <td mat-cell *matCellDef="let element"> {{element.subtotal_price}} </td>
+        <td mat-cell *matCellDef="let element"> {{element.subtotal_price | userCurrency | async}} </td>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -65,7 +75,7 @@
     </div>
   </main>
   <footer>
-    <span class="heading-1">Total price: {{ totalPrice$ | async }}</span>
+    <span class="heading-1">Total price: {{ (totalPrice$ | async) | userCurrency | async }}</span>
     <div class="button-proceed heading-3">Proceed to checkout</div>
   </footer>
 </div>

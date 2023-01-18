@@ -18,7 +18,6 @@ export class QuantityCellComponent {
   public quantityChanged = new EventEmitter<void>();
 
   public onRemove(event: MouseEvent) {
-    debugger;
     event.stopPropagation();
     this.data.removeOne();
     this.quantityChanged.next(void 0);
